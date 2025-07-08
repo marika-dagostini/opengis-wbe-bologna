@@ -85,7 +85,8 @@
 			<!--form logo -->
 			<div id="form_logo" style="position:absolute; z-index:1">
 			<label><a href="./index.html"><img src="./resources/stemma.png" align="left" height="60" title='Reset map'></img></a></label>
-			<h1 align="center"></h1>
+			<h1 align="left">Bayesian Hierarchical Modelling to Improve Wastewater-based Spatio-temporal Prediction of 
+			SARS-CoV-2: the Case Study of Bologna, Italy</h1>
 			</div>
 			<!-- form query wms wfs -->	  
 			<form id="form_querywmswfs" style="display: none; height:74px!important">
@@ -114,15 +115,18 @@
 					<div class="sidebar-tabs">
 						<ul role="tablist">
 							<li><a href="#tab1" title="TAB 1" role="tab"><i class="fa fa-bars"></i></a></li>
-							<li><a href="#tab2" title="TAB 2" role="tab"><strong style="font-size: 13px; font-family: 'arial';">TAB2</strong></a></li>
+							<li><a href="#tab2" title="TAB 2" role="tab"><i class="fa fa-line-chart"></i></a></li>
+							<li><a href="#tab3" title="TAB 3" role="tab"><i class="fa fa-table"></i></a></li>
+							<li><a href="#tab4" title="TAB 4" role="tab"><i class="fa fa-quote-left"></i></a></li>
+						<!--	<li><a href="#tab2" title="TAB 2" role="tab"><strong style="font-size: 13px; font-family: 'arial';">TAB2</strong></a></li>
 							<li><a href="#tab3" title="TAB 3" role="tab"><strong style="font-size: 13px; font-family: 'arial';">TAB3</strong></a></li>
-							<li><a href="#tab4" title="TAB 4" role="tab"><strong style="font-size: 13px; font-family: 'arial';">TAB4</strong></a></li>
+							<li><a href="#tab4" title="TAB 4" role="tab"><strong style="font-size: 13px; font-family: 'arial';">TAB4</strong></a></li> -->
 						</ul>
 						<ul role="tablist">
-							<li class="disabled"><a href="#gear" role="tab"><i class="fa fa-gear"></i></a></li>
+						<!--	<li class="disabled"><a href="#gear" role="tab"><i class="fa fa-gear"></i></a></li>
 							<li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
 							<li class="disabled"><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-							<li class="disabled"><a href="#share" title="Share" role="tab"><i class="fa fa-share-alt"></i></a></li>
+							<li class="disabled"><a href="#share" title="Share" role="tab"><i class="fa fa-share-alt"></i></a></li> -->
 							<li><a href="#download" title="Download" role="tab"><i class="fa fa-download"></i></a></li>
 							<li onClick="window.print()"><a title="Print" role="tab"><i class="fa fa-print"></i></a></li>
 							<li><a href="#info" title="Info" role="tab"><i class="fa fa-info"></i></a></li>
@@ -365,6 +369,16 @@
 		  $('#ol-street-view--panorama').css('filter', 'invert(1)');
 		}
 	});
+	map.removeControl(geocoder);				// remove address search
+	map.removeControl(geoloc);				// remove gps loc
+	map.removeControl(querywmswfs);			// remove query wms
+	map.removeControl(popupall);				// remove popup all
+	map.removeControl(bar);					// remove design bar
+	map.removeControl(search); 				// remove quick search
+	map.removeControl(ov);					// remove minimap
+	map.removeControl(scaleCtrl);			// remove scale control
+	map.removeControl(mousePositionDefault); // remove mouse position
+	map.removeControl(printControl);			// remove print		
 </script>
 <!-- attribution 
 <script>	
@@ -401,5 +415,13 @@
 		display: none!important;}
 </style>
 -->
+
+<style>
+.ol-permalink {display: none!important;}	
+.layerExtent {display: none!important;}
+.layerup {display: none!important;}
+#ol-street-view--pegman-button-div {display: none!important;}
+.legend-attribution {display: none!important;}
+</style>
     </body>
 </html>

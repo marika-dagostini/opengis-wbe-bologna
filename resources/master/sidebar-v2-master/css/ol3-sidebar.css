@@ -14,13 +14,13 @@
       transition: width 500ms; } }
   @media (min-width: 768px) and (max-width: 991px) {
     .sidebar {
-      width: 305px; } }
+      width: 405px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .sidebar {
-      width: 390px; } }
+      width: 490px; } }
   @media (min-width: 1200px) {
     .sidebar {
-      width: 460px; } }
+      width: 560px; } }
 
 .sidebar-left {
   left: 0; }
@@ -38,7 +38,7 @@
   top: 0;
   bottom: 0;
   height: 100%;
-  background-color: rgba(0, 60, 136, 0.5); }
+  background-color: rgba(0, 60, 136, 0.75); }
   /* background-color: rgba(0, 89, 179, 0.7); } */
   .sidebar-left .sidebar-tabs {
     left: 0; }
@@ -62,7 +62,7 @@
         background-color: rgba(0, 60, 136, 0.6); }
       .sidebar-tabs > li.active, .sidebar-tabs > ul > li.active {
         color: #fff;
-        background-color: #0074d9; }
+        background-color: #084b86; }
       .sidebar-tabs > li.disabled, .sidebar-tabs > ul > li.disabled {
         color: rgba(255, 255, 255, 0.4); }
         .sidebar-tabs > li.disabled:hover, .sidebar-tabs > ul > li.disabled:hover {
@@ -121,7 +121,7 @@
   line-height: 40px;
   font-size: 14.4pt;
   color: #fff;
-  background-color: #0074d9; }
+  background-color: #084b86; }
   .sidebar-right .sidebar-header {
     padding-left: 40px; }
 
