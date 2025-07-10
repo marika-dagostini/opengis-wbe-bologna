@@ -1,6 +1,6 @@
 var clusterSize = 0;
 
-var style_Smallareas = function(feature, resolution){
+var style_SmallAreas = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
