@@ -860,4 +860,3 @@ lyr_LandusebasedCentroids.on('precompose', function(evt) {
 window.layersLoadedFlag = true;
 const layersLoaded = new Event('layersLoaded');
 document.dispatchEvent(layersLoaded);
-hidden
