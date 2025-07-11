@@ -1,5 +1,4 @@
-## Bayesian Hierarchical Modelling to Improve Wastewater-based Spatio-temporal Prediction of 
-			SARS-CoV-2: the Case Study of Bologna, Italy
+## Bayesian Hierarchical Modelling to Improve Wastewater-based Spatio-temporal Prediction of SARS-CoV-2: the Case Study of Bologna, Italy
 
 Marika D’Agostini <sup>1</sup>, Massimo Ventrucci <sup>1</sup>, Matilde Fondriest <sup>2</sup>, Lorenzo Vaccari <sup>2</sup>, Andrea Ranzi <sup>2</sup>
 
