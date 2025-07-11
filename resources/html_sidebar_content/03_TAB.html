@@ -1,0 +1,99 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<link rel=File-List href="06_INFO_file/filelist.xml">
+
+<link rel=themeData href="06_INFO_file/themedata.thmx">
+<link rel=colorSchemeMapping href="06_INFO_file/colorschememapping.xml">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<style>
+ .equation {
+      margin: 20px 0;
+    }
+</style>
+
+</head>
+
+<body lang=IT link=blue vlink=purple style='tab-interval:35.4pt;word-wrap:break-word'>
+
+
+
+<h2 style='text-align:left'><span style='font-size:12.0pt;font-family:"Arial",sans-serif'>MAE and MAPE<o:p></o:p></span></h2>
+<h2 style='text-align:left'><span class=SpellE><!-- /wp:heading --><!-- wp:paragraph --><!-- /wp:paragraph --><!-- wp:paragraph --><span
+style='font-size:11.0pt;font-family:"Arial",sans-serif;font-weight:normal'>
+
+When referring to the entire study area, MAE and MAPE were defined as
+
+<div class="equation">
+  \[
+  MAE_e = \frac{1}{T} \sum_{t=1}^{T} \left| y(t) - \hat{y}(t) \right|
+  \]
+</div>
+
+<div class="equation">
+  \[
+  MAPE_e = \frac{1}{T} \sum_{t=1}^{T} \frac{\left| y(t) - \hat{y}(t) \right|}{y(t)}
+  \]
+</div>
+
+
+  where \( y(t) \) is the number of COVID-19 cases registered in the entire study area on day \( t \),
+  \( \hat{y}(t) \) is the corresponding number predicted by the deterministic model, and \( T = 589 \)
+  is the number of days in the study period.
+
+  At the small-area level, we computed MAE but not MAPE, as MAPE requires dividing by the actual number of daily cases,
+  which was frequently zero, making the percentage error undefined on those days. We defined MAE at a small-area level as
+
+
+<div class="equation">
+  \[
+  MAE_{sa} = \frac{1}{N \cdot T} \sum_{i=1}^{N} \sum_{t=1}^{T} \left| y_i(t) - \hat{y}_i(t) \right|
+  \]
+</div>
+
+
+  where \( y_i(t) \) is the number of COVID-19 cases registered in small area \( i \) on day \( t \),
+  \( \hat{y}_i(t) \) is the corresponding number predicted by the deterministic model, and
+  \( N = 724 \) is the number of small areas. <br><br>
+
+
+
+  To facilitate comparison with the results reported by Fondriest et al. (2023) and to examine the model’s consistency
+  across different spatial scales, we aggregated the small areas into 67 larger zones with at least 2,000 residents each,
+  referred to as aggregated areas. We then computed MAE and MAPE at the aggregated-area level comparing the daily predicted
+  number of COVID-19 cases with the observed cases smoothed using a 7-day Simple Moving Average (SMA). We refer to these as
+
+
+<div class="equation">
+  \[
+  MAE_{sma} = \frac{1}{K \cdot T} \sum_{k=1}^{K} \sum_{t=1}^{T} \left| \tilde{y}_k(t) - \hat{y}_k(t) \right|
+  \]
+</div>
+
+<div class="equation">
+  \[
+  MAPE_{sma} = \frac{1}{K \cdot T} \sum_{k=1}^{K} \sum_{t=1}^{T} \frac{\left| \tilde{y}_k(t) - \hat{y}_k(t) \right|}{\tilde{y}_k(t)}
+  \]
+</div>
+
+
+  where \( \tilde{y}_k(t) \) is the number of COVID-19 cases observed in registered area \( k \) on day \( t \)
+  and smoothed using a 7-day SMA, and \( k = 67 \) is the number of aggregated areas.
+<o:p></o:p></span></h2>
+ 
+<img width=400 src="03_TAB_file/tab_MAE.png" v:shapes="Immagine_x0020_4">
+
+</body>
+
+</html>
