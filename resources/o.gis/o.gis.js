@@ -1432,17 +1432,30 @@
 								return '<a href="' + val + '" target="_blank">' + val + '</a>';
 							};
 						} else if (fieldImages[key] && fieldImages[key].toLowerCase() === 'externalresource') {
-							// Se è un'immagine esterna, assegnare una funzione di formato per generare un tag img o video controls
-							attributes[key].format = function (val, feature) {
-								if (/\.(gif|jpg|jpeg|tif|tiff|png|avif|webp|svg)$/i.test(val)) {
-									// Se il valore è un'immagine, visualizzalo come immagine
-									return '<img src="' + val + '"></img>';
-								} else if (/\.(mp4|webm|ogg|avi|mov|flv)$/i.test(val)) {
-									// Se il valore è un video, visualizzalo come video
-									return '<video controls src="' + val + '"></video>';
-								}
-							};
-						} else {
+	attributes[key].format = function (val, feature) {
+		// Clean up the value in case it's wrapped in <a href="...">...</a>
+		if (val.includes('<a')) {
+			const match = val.match(/href="([^"]+)"/);
+			if (match) val = match[1];
+		}
+
+		// If it looks like a local file path, extract just the filename
+		if (val.startsWith("file:///") || val.includes("\\")) {
+			val = val.split(/(\\|\/)/).pop(); // grab just the filename
+		}
+
+		// Use relative path to GitHub-hosted image
+		let imageUrl = 'images/' + val;
+
+		if (/\.(gif|jpg|jpeg|tif|tiff|png|avif|webp|svg)$/i.test(val)) {
+			return '<img src="' + imageUrl + '" width="300">';
+		} else if (/\.(mp4|webm|ogg|avi|mov|flv)$/i.test(val)) {
+			return '<video controls src="' + imageUrl + '" width="300"></video>';
+		}
+		return val;
+	};
+}
+else {
 							// Se non soddisfa le condizioni precedenti, assegnare il valore all'attributo
 							attributes[key].value = value;
 						}
