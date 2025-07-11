@@ -1436,7 +1436,7 @@
 							attributes[key].format = function (val, feature) {
 								if (/\.(gif|jpg|jpeg|tif|tiff|png|avif|webp|svg)$/i.test(val)) {
 									// Se il valore è un'immagine, visualizzalo come immagine
-									return '<img src="https://marika-dagostini.github.io/opengis-wbe-bologna/images/' + val + '"></img>';
+									return '<img src="' + val + '"></img>';
 								} else if (/\.(mp4|webm|ogg|avi|mov|flv)$/i.test(val)) {
 									// Se il valore è un video, visualizzalo come video
 									return '<video controls src="' + val + '"></video>';
