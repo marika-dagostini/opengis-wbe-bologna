@@ -1433,28 +1433,38 @@
 							};
 						} else if (fieldImages[key] && fieldImages[key].toLowerCase() === 'externalresource') {
 	attributes[key].format = function (val, feature) {
-		// Clean up the value in case it's wrapped in <a href="...">...</a>
+		// Remove any <a href="...">...</a> wrapping
 		if (val.includes('<a')) {
 			const match = val.match(/href="([^"]+)"/);
-			if (match) val = match[1];
+			if (match) val = match[1]; // Extract the actual URL from the <a> tag
 		}
 
-		// If it looks like a local file path, extract just the filename
+		// If it's a local path (file:// or Windows path), get just the filename
 		if (val.startsWith("file:///") || val.includes("\\")) {
-			val = val.split(/(\\|\/)/).pop(); // grab just the filename
+			val = val.split(/(\\|\/)/).pop();
 		}
 
-		// Use relative path to GitHub-hosted image
+		// Encode spaces and other special characters for the URL
+		val = encodeURIComponent(val);
+
+		// Relative URL to image hosted on GitHub Pages
 		let imageUrl = 'images/' + val;
 
+		// If it's an image, return <img> tag
 		if (/\.(gif|jpg|jpeg|tif|tiff|png|avif|webp|svg)$/i.test(val)) {
 			return '<img src="' + imageUrl + '" width="300">';
-		} else if (/\.(mp4|webm|ogg|avi|mov|flv)$/i.test(val)) {
+		}
+
+		// If it's a video, return <video> tag
+		if (/\.(mp4|webm|ogg|avi|mov|flv)$/i.test(val)) {
 			return '<video controls src="' + imageUrl + '" width="300"></video>';
 		}
+
+		// If it's not a media file, just return the text
 		return val;
 	};
 }
+
 else {
 							// Se non soddisfa le condizioni precedenti, assegnare il valore all'attributo
 							attributes[key].value = value;
